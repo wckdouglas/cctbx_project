@@ -1598,6 +1598,14 @@ class Builder(object):
             use_ssh=use_git_ssh, verbose=True, reference=reference_repository_path)
     self.add_step(_indirection())
 
+    # pick a specific commit for cbflib
+    if module == 'cbflib':
+      self.add_step(self.shell(command=['git', 'checkout', '2e932b6980e4ee147e9490474504d5000d5e8d74'],
+                               workdir=['modules', 'cbflib']))
+    if module == 'cctbx_project':
+      self.add_step(self.shell(command=['git', 'checkout', '5f24d9dde48ed641f100515b609780076fb1fe'],
+                               workdir=['modules', 'cctbx_project']))
+
     # Update version information
     if module == 'cctbx_project':
       workdir = ['modules', module]
@@ -1619,11 +1627,6 @@ class Builder(object):
       self.add_step(self.shell(
         command=['git', 'branch', '--set-upstream-to=origin/dials-2.2', 'dials-2.2'],
         workdir=workdir))
-
-    # pick a specific commit for cbflib
-    if module == 'cbflib':
-      self.add_step(self.shell(command=['git', 'checkout', 'a9f39aff00580bb24d6dacb9ffa1bd2df1dedc31'],
-                               workdir=['modules', 'cbflib']))
 
   def _check_for_Windows_prerequisites(self):
     if self.isPlatformWindows():
