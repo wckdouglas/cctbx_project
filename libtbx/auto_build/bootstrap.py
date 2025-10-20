@@ -1605,6 +1605,29 @@ class Builder(object):
     if module == 'cctbx_project':
       self.add_step(self.shell(command=['git', 'checkout', '5f24d9dde48ed641f100515b609780076fb1fe'],
                                workdir=['modules', 'cctbx_project']))
+    if module == 'annlib':
+      self.add_step(self.shell(command=['git', 'checkout', 'e23a7c1be859508878fe07ed49d5f82b836b5fe7'],
+                               workdir=['modules', 'annlib']))
+    
+    if module == 'annlib_adaptbx':
+      self.add_step(self.shell(command=['git', 'checkout', 'fb1097bc37fa304eb9aba68fdc709ec08cf4a61a'],
+                               workdir=['modules', 'annlib_adaptbx']))
+    if module == 'ccp4io':
+      self.add_step(self.shell(command=['git', 'checkout', 'b58c4fb68902e4e6a58f4a585d0722e542516076'],
+                               workdir=['modules', 'ccp4io']))
+    if module == 'ccp4io_adaptbx':
+      self.add_step(self.shell(command=['git', 'checkout', 'd8534cac262365e8a815f275cd1f1aa1650972cb'],
+                               workdir=['modules', 'ccp4io_adaptbx']))
+    if module == 'probe':
+      self.add_step(self.shell(command=['git', 'checkout', '835c2c63dd14b8c30599900b07c2296925cc933c'],
+                               workdir=['modules', 'probe']))
+    if module == 'reduce':
+      self.add_step(self.shell(command=['git', 'checkout', '2d56edccbafa79af14d0aeb0b67ddaed304998f6'],
+                               workdir=['modules', 'reduce']))
+    if module == 'reduce':
+      self.add_step(self.shell(command=['git', 'checkout', '98c86dd72fabd2ea7e2c95b878deec5e3b269952'],
+                               workdir=['modules', 'tntbx']))
+
 
     # Update version information
     if module == 'cctbx_project':
